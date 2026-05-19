@@ -4,13 +4,13 @@ FROM python:3.11-slim
 # 2. Le decimos a Docker en qué carpeta de su contenedor vamos a trabajar
 WORKDIR /app
 
-# 3. Copiamos el archivo de requisitos primero (esto optimiza la caché de Docker)
+# 3. Copiamos el archivo de requisitos primero
 COPY requirements.txt .
 
 # 4. Instalamos las librerías necesarias
 RUN pip install --no-cache-dir -r requirements.txt
 
-# 5. Copiamos todo tu proyecto (app.py, modelo_sentimientos.d2v, modelo_rf_final.pkl, etc.) al contenedor
+# 5. Copiamos todo el proyecto
 COPY . .
 
 # 6. Exponemos el puerto que usa Streamlit por defecto
